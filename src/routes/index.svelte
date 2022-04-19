@@ -7,19 +7,14 @@
   let currentIndex = 0;
   let winner = '';
 
-  function left() {
-    if (yourIndex === 0) {
-      yourIndex = choices.length - 1;
-    } else {
-      yourIndex--;
-    }
-  }
-
-  function right() {
-    if (yourIndex === choices.length - 1) {
-      yourIndex = 0;
-    } else {
-      yourIndex++;
+  function changePlayerChoice(dir) {
+    switch (dir) {
+      case 'left':
+        yourIndex = (yourIndex - 1 + choices.length) % choices.length;
+        break;
+      case 'right':
+        yourIndex = (yourIndex + 1) % choices.length;
+        break;
     }
   }
 
@@ -31,14 +26,13 @@
     }
   }
 
-  function handleKeydown(event) {
-		keyCode = event.keyCode;
+  function handleKeydown({keyCode}) {
     switch (keyCode) {
       case 37:
-        left();
+      changePlayerChoice('left');
         break;
       case 39:
-        right();
+      changePlayerChoice('right');
         break;
       case 13:
         play();
@@ -65,13 +59,14 @@
   function play() {
     let randomNumber = Math.floor(Math.random() * 20);
     playing = 'playing';
-    setInterval(() => {
+    const loop = setInterval(() => {
       if (randomNumber > 0) {
         theirLeft();
         randomNumber--;
         currentIndex = theirIndex;
       } else {
         playing = 'done'
+        clearInterval(loop);
         winner = whoWon()
       }
     }, 250)
@@ -89,26 +84,23 @@
 <svelte:window on:keydown={handleKeydown}/>
 
 <div class='wrapper'>
-  {#if playing === 'done'}
-    <section class="winner">{winner}</section>
-  {/if}
   <section class='my-choice'>
     <div class='choice'>
-      <button on:click={left}>◀</button>
+      <button on:click={() => changePlayerChoice('left')}>◀</button>
       <p>{choices[yourIndex]}</p>
-      <button on:click={right}>▶</button>
+      <button on:click={() => changePlayerChoice('right')}>▶</button>
     </div>
     <p class='choice-p'>What is your choice?</p>
   </section>
   <section class='their-choice'>
     {#if playing === 'playing'}
-      <p>{choices[theirIndex]}</p>
+      {choices[theirIndex]}
     {:else if playing === 'done'}
       <button class='reset-button' on:click={reset}>↺</button>
-      <p>{choices[currentIndex]}</p>
+      <p>{winner}</p>
     {:else}
       <button class='play-button' on:click={play}>▶</button>
-      <p>❔</p>
+      ❔
     {/if}
   </section>
 </div>
@@ -138,7 +130,17 @@
     border-radius: 4rem;
     font-size: 5rem;
     padding: 2rem;
-    margin: 1rem;
+    margin: 2rem;
+  }
+
+  .winner {
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    .winner {
+      font-size: 3.5rem;
+    }
   }
 
   .winner {
@@ -148,6 +150,7 @@
   }
 
   .their-choice p {
+    font-size: 3.5rem;
     text-align: center;
   }
 
