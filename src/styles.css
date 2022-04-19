@@ -6,6 +6,7 @@
 	--font-mono: 'Fira Mono', monospace;
 	--background-color: #0d0057;
   --text-color: #eeeeee;
+  --highlight-color: #ff0000;
 }
 
 #svelte {
@@ -22,11 +23,6 @@ body {
   line-height: 1.5;
   margin: 0;
   padding: 0;
-}
-
-main {
-  width: 100vw;
-  height: 100vh;
 }
 
 h1 {
