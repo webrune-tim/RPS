@@ -7,7 +7,7 @@
   <h1>
     <div>
       <span>🪨</span>
-      <span>R  ck</span>
+      <span>Rock</span>
     </div>
     <div>
       <span>📄</span>
