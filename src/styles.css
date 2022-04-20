@@ -8,6 +8,7 @@
 	--background-color: rgba(0, 0, 0, 0.6);
   --dark-highlight-color: #0d0057;
   --highlight-color: #57999a;
+  --bright-color: #e7c8c1;
 }
 
 #svelte {
@@ -47,5 +48,12 @@ h2 {
 }
 
 h1, h2 {
+  text-shadow: 0 0 0.5rem var(--dark-highlight-color);
+}
+
+a {
+  color: var(--bright-color);
+  text-decoration: underline;
+  font-weight: bold;
   text-shadow: 0 0 0.5rem var(--dark-highlight-color);
 }

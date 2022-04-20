@@ -1,18 +1,8 @@
-# create-svelte
+![Rock Paper Scissors Lizard Spock](https://res.cloudinary.com/tihos/image/upload/f_auto,q_auto/v1650434815/thumbnail_lkqkqk.jpg)
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+# Rock Paper Scissors Lizard Spock
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm init svelte
-
-# create a new project in my-app
-npm init svelte my-app
-```
+## The unofficial Rock Paper Scissors Lizard Spock game from The Big Bang Theory TV show
 
 ## Developing
 
@@ -35,4 +25,8 @@ npm run build
 
 You can preview the production build with `npm run preview`.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Deployment
+
+### We use Cloudflare
+
+Contact [Tim Smith](mailto:gonad2019@gmail.com) to configure Cloudflare settings for now.

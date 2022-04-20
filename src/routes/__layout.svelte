@@ -32,6 +32,7 @@
 </main>
 <footer>
   <p>Created with ❤️ by <a href="https://timsmith.tech">Tim Smith</a></p>
+  <p>Crontribute on <a href="https://github.com/timscodebase/RPS">GitHub</a></p>
 </footer>
 
 <style>
