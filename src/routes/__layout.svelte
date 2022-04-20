@@ -4,8 +4,28 @@
 </script>
 
 <header>
-  <h1>✊🏼, 🖐🏼, ✌🏼</h1>
-  <h2>Rock, Paper, Scissors!</h2>
+  <h1>
+    <div>
+      <span>🪨</span>
+      <span>R  ck</span>
+    </div>
+    <div>
+      <span>📄</span>
+      <span>Pa er</span>
+    </div>
+    <div>
+      <span>✂️</span>
+      <span>Sci  ors</span>
+    </div>
+    <div>
+      <span>🦎</span>
+      <span>Li  rd</span>
+    </div>
+    <div>
+      <span>🖖</span>
+      <span>Sp ck</span>
+    </div>
+  </h1>
 </header>
 <main>
   <slot />
@@ -16,10 +36,44 @@
 
 <style>
   header {
+    background: radial-gradient(circle rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
   }
+
+  h1 {
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5rem;
+  }
+  span:nth-child(1) {
+    position: relative;
+    z-index: 2;
+  }
+  span:nth-child(2) {
+    margin-top: -6.5rem;
+  }
+
   footer {
     padding: 3rem;
     text-align: center;
     color: var(--text-color);
+  }
+
+  @media (max-width: 600px) {
+    header {
+      padding: 1rem;
+    }
+    h1 {
+      font-size: 3.5rem;
+    }
   }
 </style>

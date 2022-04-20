@@ -1,8 +1,7 @@
 <script>
-  const choices = ['✊🏼', '🖐🏼', '✌🏼'];
+  const choices = ['🪨', '📄', '✂️', '🦎', '🖖🏼'];
   let yourIndex = 0;
   let theirIndex = 0;
-	let keyCode;
   let playing = '';
   let currentIndex = 0;
   let winner = '';
@@ -45,14 +44,28 @@
   function whoWon() {
     if (yourIndex === currentIndex) {
       return 'It\'s a tie!';
-    } else if (yourIndex === 0 && currentIndex === 2) {
-      return 'You won :)';
+    } else if (yourIndex === 0 && currentIndex === 3) {
+      return 'You won 😀';
     } else if (yourIndex === 1 && currentIndex === 0) {
-      return 'You won :)';
+      return 'You won 😀';
     } else if (yourIndex === 2 && currentIndex === 1) {
-      return 'You won :)';
+      return 'You won 😀';
+    } else if (yourIndex === 3 && currentIndex === 4) {
+      return 'You won 😀';
+    } else if (yourIndex === 4 && currentIndex === 2) {
+      return 'You won 😀';
+    } else if (yourIndex === 2 && currentIndex === 3) {
+      return 'You won 😀';
+    } else if (yourIndex === 3 && currentIndex === 1) {
+      return 'You won 😀';
+    } else if (yourIndex === 1 && currentIndex === 4) {
+      return 'You won 😀';
+    } else if (yourIndex === 4 && currentIndex === 0) {
+      return 'You won 😀';
+    } else if (yourIndex === 0 && currentIndex === 2) {
+      return 'You won 😀';
     } else {
-      return 'They won :(';
+      return 'They won 🤬';
     }
   }
 
@@ -74,7 +87,6 @@
 
   function reset() {
     playing = '';
-    yourIndex = 0;
     theirIndex = 0;
     currentIndex = 0;
     winner = '';
@@ -97,6 +109,7 @@
       {choices[theirIndex]}
     {:else if playing === 'done'}
       <button class='reset-button' on:click={reset}>↺</button>
+      <p>{choices[currentIndex]}</p>
       <p>{winner}</p>
     {:else}
       <button class='play-button' on:click={play}>▶</button>
@@ -126,7 +139,9 @@
   .my-choice,
   .their-choice {
     min-height: 245px;
-    border: 6px var(--text-color) solid;
+    border: 6px var(--highlight-color) solid;
+    background-color: var(--background-color);
+    box-shadow: 0 0 10px var(--dark-highlight-color);
     border-radius: 4rem;
     font-size: 5rem;
     padding: 2rem;
@@ -190,9 +205,8 @@
   .reset-button {
     display: block;
     background: transparent;
-    color: var(--highlight-color);
+    color: var(--text-color);
     font-size: 5rem;
-    -webkit-text-stroke: 4px var(--text-color);
     margin-bottom: 0.5rem;
     cursor: pointer;
   }
