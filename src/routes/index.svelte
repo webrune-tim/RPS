@@ -96,24 +96,23 @@
 <svelte:window on:keydown={handleKeydown}/>
 
 <div class='wrapper'>
-  <section class='my-choice'>
+  <section class='game'>
     <div class='choice'>
       <button on:click={() => changePlayerChoice('left')}>◀</button>
-      <p>{choices[yourIndex]}</p>
+      {choices[yourIndex]}
       <button on:click={() => changePlayerChoice('right')}>▶</button>
     </div>
+    {#if playing === ''}
     <p class='choice-p'>What is your choice?</p>
-  </section>
-  <section class='their-choice'>
+    {/if}
     {#if playing === 'playing'}
       {choices[theirIndex]}
     {:else if playing === 'done'}
-      <button class='reset-button' on:click={reset}>↺</button>
-      <p>{choices[currentIndex]}</p>
       <p>{winner}</p>
+      {choices[currentIndex]}
+      <button class='reset-button' on:click={reset}>↺</button>
     {:else}
       <button class='play-button' on:click={play}>▶</button>
-      ❔
     {/if}
   </section>
 </div>
@@ -126,51 +125,34 @@
     align-items: center;
     justify-content: center;
   }
-
-  .middle,
-  .my-choice,
-  .their-choice{
+  
+  .game {
     margin: 2rem auto;
     flex: 1 1 550px;
     gap: 2rem;
   }
-
-  .winner,
-  .my-choice,
-  .their-choice {
+  
+  .game {
     min-height: 245px;
     border: 6px var(--highlight-color) solid;
     background-color: var(--background-color);
     box-shadow: 0 0 10px var(--dark-highlight-color);
     border-radius: 4rem;
+    text-align: center;
+    margin: 0 auto;
+    flex: 1 1 550px;
     font-size: 5rem;
     padding: 2rem;
     margin: 2rem;
+    gap: 2rem;
   }
 
-  .winner {
-    text-align: center;
-  }
-
-  @media (max-width: 600px) {
-    .winner {
-      font-size: 3.5rem;
-    }
-  }
-
-  .winner {
-    width: 100%;
-    display: grid;
-    place-items: center;
-  }
-
-  .their-choice p {
+  .game p {
     font-size: 3.5rem;
     text-align: center;
   }
 
-  .choice,
-  .their-choice {
+  .choice {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -181,7 +163,15 @@
     text-align: center;
   }
 
-  .my-choice button {
+  @media (max-width: 600px) {
+    .game p {
+      margin-top: 0.5rem;
+      font-size: 1.25rem;
+      text-align: center;
+    }
+  }
+
+  .game button {
     font-size: 2rem;
     width: 4rem;
     height: 3rem;
@@ -193,7 +183,6 @@
   }
 
   .play-button {
-    display: block;
     background: transparent;
     color: var(--highlight-color);
     font-size: 5rem;
@@ -203,7 +192,6 @@
   }
 
   .reset-button {
-    display: block;
     background: transparent;
     color: var(--text-color);
     font-size: 5rem;

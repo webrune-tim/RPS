@@ -20,6 +20,7 @@ body {
   font-family: var(--font-mono);
   background-color: var(--background-color);
   background: url("https://res.cloudinary.com/tihos/image/upload/f_auto,q_auto/v1650411071/rainbow_cz6ewu.png");
+  background-size: cover;
   color: var(--text-color);
   font-size: 16px;
   line-height: 1.5;

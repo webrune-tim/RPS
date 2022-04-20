@@ -36,7 +36,7 @@
 
 <style>
   header {
-    background: radial-gradient(circle rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+    background-image: radial-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
   }
 
   h1 {
