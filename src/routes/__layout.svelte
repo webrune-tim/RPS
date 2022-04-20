@@ -45,6 +45,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    padding: 0 6rem;
   }
 
   div {
@@ -74,6 +75,11 @@
     }
     h1 {
       font-size: 3.5rem;
+      padding: 0;
     }
+
+    span:nth-child(2) {
+    margin-top: -5.5rem;
+  }
   }
 </style>

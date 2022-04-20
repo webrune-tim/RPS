@@ -98,9 +98,9 @@
 <div class='wrapper'>
   <section class='game'>
     <div class='choice'>
-      <button on:click={() => changePlayerChoice('left')}>◀</button>
+      <button on:click={() => changePlayerChoice('left')}>&lt;</button>
       {choices[yourIndex]}
-      <button on:click={() => changePlayerChoice('right')}>▶</button>
+      <button on:click={() => changePlayerChoice('right')}>&gt;</button>
     </div>
     {#if playing === ''}
     <p class='choice-p'>What is your choice?</p>
@@ -170,9 +170,16 @@
       font-size: 1.25rem;
       text-align: center;
     }
+  }.play-button {
+    background: transparent;
+    color: var(--highlight-color);
+    font-size: 5rem;
+    -webkit-text-stroke: 4px var(--text-color);
+    margin-bottom: 0.5rem;
+    cursor: pointer;
   }
 
-  .game button {
+  /* .game button {
     font-size: 2rem;
     width: 4rem;
     height: 3rem;
@@ -181,7 +188,7 @@
     cursor: pointer;
     color: var(--background-color);
     text-align: center;
-  }
+  } */
 
   .play-button {
     background: transparent;
