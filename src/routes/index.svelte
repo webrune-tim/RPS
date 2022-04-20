@@ -117,7 +117,6 @@
   </section>
 </div>
 
-
 <style>
   .wrapper {
     display: flex;
