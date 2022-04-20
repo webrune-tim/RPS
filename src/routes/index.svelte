@@ -1,4 +1,6 @@
 <script>
+  import { GoogleAnalytics } from '@beyonk/svelte-google-analytics';
+
   const choices = ['🪨', '📄', '✂️', '🦎', '🖖🏼'];
   let yourIndex = 0;
   let theirIndex = 0;
@@ -116,6 +118,8 @@
     {/if}
   </section>
 </div>
+
+<GoogleAnalytics properties={[ 'G-HTQDTMBL3V' ]} />
 
 <style>
   .wrapper {
