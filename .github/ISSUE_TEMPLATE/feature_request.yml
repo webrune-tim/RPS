@@ -6,13 +6,11 @@ body:
     attributes:
       label: What is your feature request?
       description: I can not guarantee that this feature will be implemented, BUT I will try my best to implement it. If you have the ability, please open a Pull Request.
+    validations:
+      required: true
   - type: textarea
     attributes:
       label: What's the Problem?
       description: If your feature request is related to a problem, describe it clearly.
-  # - type: textarea
-  #   attributes:
-  #     label: Alternatives
-  #     description: Describe alternatives you've considered
-  #   validations:
-  #     required: true
+    validations:
+      required: false
