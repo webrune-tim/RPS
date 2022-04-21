@@ -1,4 +1,5 @@
 <script>
+  import { GoogleAnalytics } from '@beyonk/svelte-google-analytics';
   import '../reset.css';
   import '../styles.css';
 </script>
@@ -32,8 +33,10 @@
 </main>
 <footer>
   <p>Created with ❤️ by <a href="https://timsmith.tech">Tim Smith</a></p>
-  <p>Crontribute on <a href="https://github.com/timscodebase/RPS">GitHub</a></p>
+  <p>Contribute on <a href="https://github.com/timscodebase/RPS">GitHub</a></p>
 </footer>
+
+<GoogleAnalytics properties={[ 'G-HTQDTMBL3V' ]} />
 
 <style>
   header {

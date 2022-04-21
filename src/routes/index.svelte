@@ -1,6 +1,5 @@
 <script>
-  import { ga, GoogleAnalytics } from '@beyonk/svelte-google-analytics';
-
+  import { ga } from '@beyonk/svelte-google-analytics';
   const choices = ['🪨', '📄', '✂️', '🦎', '🖖🏼'];
   let yourIndex = 0;
   let theirIndex = 0;
@@ -72,7 +71,7 @@
   }
 
   function play() {
-    ga.games.level_start('Rock Paper Scissors Lizard Spock', 'Sheldon Cooper');
+    ga.games.levelStart('Rock Paper Scissors Lizard Spock', 'Sheldon Cooper');
     let randomNumber = Math.floor(Math.random() * 20);
     playing = 'playing';
     const loop = setInterval(() => {
@@ -119,8 +118,6 @@
     {/if}
   </section>
 </div>
-
-<GoogleAnalytics properties={[ 'G-HTQDTMBL3V' ]} />
 
 <style>
   .wrapper {
