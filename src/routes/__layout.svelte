@@ -34,6 +34,15 @@
 <footer>
   <p>Created with ❤️ by <a href="https://timsmith.tech">Tim Smith</a></p>
   <p>Contribute on <a href="https://github.com/timscodebase/RPS">GitHub</a></p>
+  <!-- Footer Ad -->
+  <ins 
+    class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-3189326528459169"
+    data-ad-slot="4137371154"
+    data-ad-format="auto"
+    data-full-width-responsive="true"
+  />
 </footer>
 
 <GoogleAnalytics properties={[ 'G-HTQDTMBL3V' ]} />
