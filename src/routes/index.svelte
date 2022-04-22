@@ -121,21 +121,17 @@
 
 <style>
   .wrapper {
-    max-width: 600px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
+    display: grid;
+    place-items: center;
   }
   
   .game {
-    margin: 2rem auto;
     flex: 1 1 550px;
     gap: 2rem;
   }
   
   .game {
+    max-width: 600px;
     min-height: 245px;
     border: 6px var(--highlight-color) solid;
     background-color: var(--background-color);
@@ -167,12 +163,19 @@
   }
 
   @media (max-width: 600px) {
+    .game {
+      width: 80%;
+      height: 310px;
+      font-size: 4rem;
+    }
     .game p {
       margin-top: 0.5rem;
       font-size: 1.25rem;
       text-align: center;
     }
-  }.play-button {
+  }
+  
+  .play-button {
     background: transparent;
     color: var(--highlight-color);
     font-size: 5rem;
@@ -181,20 +184,9 @@
     cursor: pointer;
   }
 
-  /* .game button {
-    font-size: 2rem;
-    width: 4rem;
-    height: 3rem;
-    border-radius: 2rem;
-    background: var(--text-color);
-    cursor: pointer;
-    color: var(--background-color);
-    text-align: center;
-  } */
-
   .play-button {
     background: transparent;
-    color: var(--highlight-color);
+    color: red;
     font-size: 5rem;
     -webkit-text-stroke: 4px var(--text-color);
     margin-bottom: 0.5rem;

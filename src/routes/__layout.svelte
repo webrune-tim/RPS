@@ -51,14 +51,20 @@
   header {
     background-image: radial-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
   }
-
+  
   h1 {
-    width: 100vw;
+    width: 96%;
+    font-size: 4rem;
+    font-weight: 400;
+    color: var(--heading-color);
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
     align-items: center;
-    padding: 0 6rem;
+    justify-content: space-evenly;
+    /* padding: 0 6rem; */
+    gap: 2rem;
+    text-align: center;
+    text-shadow: 0 0 0.5rem var(--dark-highlight-color);
   }
 
   div {
@@ -66,7 +72,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 1.5rem;
   }
   span:nth-child(1) {
     position: relative;
@@ -74,6 +79,17 @@
   }
   span:nth-child(2) {
     margin-top: -6.5rem;
+  }
+
+  @media (max-width: 600px) {
+    span:nth-child(1),
+    span:nth-child(2) {
+      font-size: 2rem;
+    }
+
+    span:nth-child(2) {
+      margin-top: -3rem;
+    }
   }
 
   footer {
@@ -90,9 +106,5 @@
       font-size: 3.5rem;
       padding: 0;
     }
-
-    span:nth-child(2) {
-    margin-top: -5.5rem;
-  }
   }
 </style>
