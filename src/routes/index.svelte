@@ -131,7 +131,8 @@
   }
   
   .game {
-    max-width: 600px;
+    width: 600px;
+    height: 400px;
     min-height: 245px;
     border: 6px var(--highlight-color) solid;
     background-color: var(--background-color);
