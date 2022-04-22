@@ -108,6 +108,7 @@
     <p class='choice-p'>What is your choice?</p>
     {/if}
     {#if playing === 'playing'}
+      <p>Good Luck</p>
       {choices[theirIndex]}
     {:else if playing === 'done'}
       <p>{winner}</p>
