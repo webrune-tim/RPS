@@ -12,19 +12,19 @@
     </div>
     <div>
       <span>📄</span>
-      <span>Pa er</span>
+      <span>Paper</span>
     </div>
     <div>
       <span>✂️</span>
-      <span>Sci  ors</span>
+      <span>Scissors</span>
     </div>
     <div>
       <span>🦎</span>
-      <span>Li  rd</span>
+      <span>Lizard</span>
     </div>
     <div>
       <span>🖖</span>
-      <span>Sp ck</span>
+      <span>Spock</span>
     </div>
   </h1>
 </header>
@@ -49,6 +49,7 @@
 
 <style>
   header {
+    padding: 4rem 0;
     background-image: radial-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
   }
   
