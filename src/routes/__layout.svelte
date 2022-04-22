@@ -54,7 +54,6 @@
   }
   
   h1 {
-    width: 96%;
     font-size: 4rem;
     font-weight: 400;
     color: var(--heading-color);
@@ -82,17 +81,6 @@
     margin-top: -6.5rem;
   }
 
-  @media (max-width: 600px) {
-    span:nth-child(1),
-    span:nth-child(2) {
-      font-size: 2rem;
-    }
-
-    span:nth-child(2) {
-      margin-top: -3rem;
-    }
-  }
-
   footer {
     padding: 3rem;
     text-align: center;
@@ -100,12 +88,21 @@
   }
 
   @media (max-width: 600px) {
-    header {
-      padding: 1rem;
-    }
     h1 {
       font-size: 3.5rem;
       padding: 0;
+    }
+
+    header {
+      padding: 2rem;
+    }
+    span:nth-child(1),
+    span:nth-child(2) {
+      font-size: 2rem;
+    }
+
+    span:nth-child(2) {
+      margin-top: -3rem;
     }
   }
 </style>
