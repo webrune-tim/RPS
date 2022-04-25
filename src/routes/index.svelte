@@ -1,123 +1,33 @@
 <script>
-  import { ga } from '@beyonk/svelte-google-analytics';
-  const choices = ['🪨', '📄', '✂️', '🦎', '🖖🏼'];
-  let yourIndex = 0;
-  let theirIndex = 0;
-  let playing = '';
-  let currentIndex = 0;
-  let winner = '';
+  import OpponentChoice from '$lib/OpponentChoice.svelte';
+  import Game from '$lib/game.svelte';
+  import Rules from '$lib/rules.svelte';
+  import Welcome from '$lib/welcome.svelte';
 
-  function changePlayerChoice(dir) {
+  let stage = 0;
+
+  function moveStage(dir) {
     switch (dir) {
-      case 'left':
-        yourIndex = (yourIndex - 1 + choices.length) % choices.length;
+      case 'next':
+        stage++
         break;
-      case 'right':
-        yourIndex = (yourIndex + 1) % choices.length;
-        break;
-    }
-  }
-
-  function theirLeft() {
-    if (theirIndex === 0) {
-      theirIndex = choices.length - 1;
-    } else {
-      theirIndex--;
-    }
-  }
-
-  function handleKeydown({keyCode}) {
-    switch (keyCode) {
-      case 37:
-      changePlayerChoice('left');
-        break;
-      case 39:
-      changePlayerChoice('right');
-        break;
-      case 13:
-        play();
-        break;
-      default:
+      case 'back':
+        stage--
         break;
     }
-	}
-
-  function whoWon() {
-    if (yourIndex === currentIndex) {
-      return 'It\'s a tie!';
-    } else if (yourIndex === 0 && currentIndex === 3) {
-      return 'You won 😀';
-    } else if (yourIndex === 1 && currentIndex === 0) {
-      return 'You won 😀';
-    } else if (yourIndex === 2 && currentIndex === 1) {
-      return 'You won 😀';
-    } else if (yourIndex === 3 && currentIndex === 4) {
-      return 'You won 😀';
-    } else if (yourIndex === 4 && currentIndex === 2) {
-      return 'You won 😀';
-    } else if (yourIndex === 2 && currentIndex === 3) {
-      return 'You won 😀';
-    } else if (yourIndex === 3 && currentIndex === 1) {
-      return 'You won 😀';
-    } else if (yourIndex === 1 && currentIndex === 4) {
-      return 'You won 😀';
-    } else if (yourIndex === 4 && currentIndex === 0) {
-      return 'You won 😀';
-    } else if (yourIndex === 0 && currentIndex === 2) {
-      return 'You won 😀';
-    } else {
-      return 'They won 🤬';
-    }
-  }
-
-  function play() {
-    ga.games.levelStart('Rock Paper Scissors Lizard Spock', 'Sheldon Cooper');
-    let randomNumber = Math.floor(Math.random() * 20);
-    playing = 'playing';
-    const loop = setInterval(() => {
-      if (randomNumber > 0) {
-        theirLeft();
-        randomNumber--;
-        currentIndex = theirIndex;
-      } else {
-        playing = 'done'
-        clearInterval(loop);
-        winner = whoWon()
-      }
-    }, 250)
-  }
-
-  function reset() {
-    playing = '';
-    theirIndex = 0;
-    currentIndex = 0;
-    winner = '';
   }
 </script>
 
-<svelte:window on:keydown={handleKeydown}/>
-
 <div class='wrapper'>
-  <section class='game'>
-    <div class='choice'>
-      <button on:click={() => changePlayerChoice('left')}>&lt;</button>
-      {choices[yourIndex]}
-      <button on:click={() => changePlayerChoice('right')}>&gt;</button>
-    </div>
-    {#if playing === ''}
-    <p class='choice-p'>What is your choice?</p>
-    {/if}
-    {#if playing === 'playing'}
-      <p>Good Luck</p>
-      {choices[theirIndex]}
-    {:else if playing === 'done'}
-      <p>{winner}</p>
-      {choices[currentIndex]}
-      <button class='reset-button' on:click={reset}>↺</button>
-    {:else}
-      <button class='play-button' on:click={play}>▶</button>
-    {/if}
-  </section>
+  {#if stage === 0}
+    <Welcome moveStage={moveStage} />
+  {:else if stage === 1}
+    <Rules moveStage={moveStage} />
+  {:else if stage === 2}
+    <OpponentChoice moveStage={moveStage} />
+  {:else}
+    <Game />
+  {/if}
 </div>
 
 <style>
@@ -125,81 +35,10 @@
     display: grid;
     place-items: center;
   }
-  
-  .game {
-    flex: 1 1 550px;
-    gap: 2rem;
-  }
-  
-  .game {
-    width: 600px;
-    height: 400px;
-    min-height: 245px;
-    border: 6px var(--highlight-color) solid;
-    background-color: var(--background-color);
-    box-shadow: 0 0 10px var(--dark-highlight-color);
-    border-radius: 4rem;
-    text-align: center;
-    margin: 0 auto;
-    flex: 1 1 550px;
+
+  h1 {
     font-size: 5rem;
-    padding: 2rem;
-    margin: 2rem;
-    gap: 2rem;
-  }
-
-  .game p {
-    font-size: 3.5rem;
-    text-align: center;
-  }
-
-  .choice {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-
-  .choice-p {
-    font-size: 2rem;
-    text-align: center;
-  }
-
-  @media (max-width: 600px) {
-    .game {
-      width: 80%;
-      height: 310px;
-      font-size: 4rem;
-    }
-    .game p {
-      margin-top: 0.5rem;
-      font-size: 1.25rem;
-      text-align: center;
-    }
-  }
-  
-  .play-button {
-    background: transparent;
-    color: var(--highlight-color);
-    font-size: 5rem;
-    -webkit-text-stroke: 4px var(--text-color);
-    margin-bottom: 0.5rem;
-    cursor: pointer;
-  }
-
-  .play-button {
-    background: transparent;
-    color: red;
-    font-size: 5rem;
-    -webkit-text-stroke: 4px var(--text-color);
-    margin-bottom: 0.5rem;
-    cursor: pointer;
-  }
-
-  .reset-button {
-    background: transparent;
-    color: var(--text-color);
-    font-size: 5rem;
-    margin-bottom: 0.5rem;
-    cursor: pointer;
+    font-weight: bold;
+    color: #fff;
   }
 </style>

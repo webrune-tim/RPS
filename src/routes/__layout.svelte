@@ -20,7 +20,7 @@
     </div>
     <div>
       <span>🦎</span>
-      <span>Lizard</span>
+      <span>Lizards</span>
     </div>
     <div>
       <span>🖖</span>
