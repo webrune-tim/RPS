@@ -6,6 +6,8 @@
   --dark-highlight-color: #0d0057;
   --highlight-color: #57999a;
   --bright-color: #dd4d4d;
+
+  --botton-font-size: 5rem;
 }
 
 #svelte {
@@ -14,11 +16,14 @@
 	flex-direction: column;
 }
 
+html {
+  height: 100%;
+  background: url("https://res.cloudinary.com/tihos/image/upload/f_auto,q_auto/v1650411071/rainbow_cz6ewu.png") no-repeat center center fixed;
+  background-size: cover;
+}
+
 body {
   font-family: var(--font-mono);
-  background-color: var(--background-color);
-  /* background: url("https://res.cloudinary.com/tihos/image/upload/f_auto,q_auto/v1650411071/rainbow_cz6ewu.png"); */
-  background-size: cover;
   color: var(--text-color);
   font-size: 16px;
   line-height: 1.5;
@@ -76,6 +81,7 @@ button {
     margin: 2rem 1rem;
     padding: 1rem;
     border-radius: 2rem;
+    gap: 0;
   }
 
   .stage-wrapper h1 {

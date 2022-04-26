@@ -72,7 +72,7 @@
 
   function play() {
     ga.games.levelStart('Rock Paper Scissors Lizard Spock', 'Sheldon Cooper');
-    let randomNumber = Math.floor(Math.random() * 20);
+    let randomNumber = Math.floor(Math.random() * 20) + 10;
     playing = 'playing';
     const loop = setInterval(() => {
       if (randomNumber > 0) {
@@ -105,7 +105,7 @@
     <button class="game-button" on:click={() => changePlayerChoice('right')}>&gt;</button>
   </div>
   {#if playing === ''}
-  <p class='choice-p'>What is your choice?</p>
+    <p>What is your choice?</p>
   {/if}
   {#if playing === 'playing'}
     <p>Good Luck</p>
@@ -119,13 +119,14 @@
       <button class='reset-button game-button' on:click={reset}>↺</button>
     </div>
   {:else}
-    <button class='play-button game-button' on:click={play}>▶</button>
+    <div>
+      <button class='play-button game-button' on:click={play}>▶</button>
+    </div>
   {/if}
 </section>
 
 <style>
   .game {
-    height: 536px;
     min-height: 245px;
     font-size: 5rem;
   }
@@ -135,27 +136,16 @@
     text-align: center;
   }
 
-  .choice {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-
-  .choice-p {
-    font-size: 2rem;
-    text-align: center;
-  }
-
   .game-button {
     border: none;
-    padding: 0;
+    padding: 0 2rem;
     background: none;
+    line-height: 4rem;
   }
   
   .play-button {
     background: transparent;
     color: var(--highlight-color);
-    font-size: 5rem;
     -webkit-text-stroke: 4px var(--text-color);
     margin-bottom: 0.5rem;
     cursor: pointer;
@@ -163,7 +153,7 @@
 
   .play-button,
   .reset-button {
-    font-size: 5rem;
+    font-size: var(--botton-font-size);
     cursor: pointer;
     margin-bottom: 0.5rem;
     background: transparent;
@@ -181,8 +171,10 @@
 
 
   @media (max-width: 600px) {
+    :root {
+      --botton-font-size: 4rem;
+    }
     .game {
-      height: 310px;
       font-size: 3rem;
     }
 
@@ -190,11 +182,6 @@
       margin-top: 0.5rem;
       font-size: 1.25rem;
       text-align: center;
-    }
-
-    .play-button,
-    .reset-button {
-      font-size: 3rem;
     }
   }
 </style>
