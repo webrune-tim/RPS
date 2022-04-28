@@ -1,25 +1,46 @@
 <script>
-  import { ToggleCore } from "svelte-toggle";
+	import Toggle from '$lib/toggle.svelte';
 
-  let on = false;
+	let on = false;
 
-  export let moveStage;
+	export let moveStage;
 </script>
 
 <div class="stage-wrapper">
-  <h1>Choice Your Opponent</h1>
-  <ToggleCore toggled={on} let:label let:button>
-    <!-- svelte-ignore a11y-label-has-associated-control -->
-    <label {...label}>Computer or Freind</label>
-    <button {...button} on:click={() => (on = !on)}>
-      {on ? "Computer" : "Friend"}
-    </button>
-  </ToggleCore>
-  <div>
-    {#if on === true}
-      <button on:click={() => moveStage('next')}>Continue againt computer</button>
-    {:else}
-      <p>Freind</p>
-    {/if}
-  </div>
+	<h1>Choice Your Opponent</h1>
+	<section class="oppenent-choice">
+		<p>Computer</p>
+		<Toggle checked={on} handleToggle={() => (on = !on)} />
+		<p>Friend</p>
+	</section>
+	<div>
+		{#if on === false}
+			<button on:click={() => moveStage('next')}>Continue againt computer</button>
+		{:else}
+			<p>Friend</p>
+		{/if}
+	</div>
 </div>
+
+<style>
+	p {
+		text-align: center;
+	}
+	.oppenent-choice {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		place-items: center;
+	}
+
+	.oppenent-choice p {
+		display: block;
+		font-size: calc(var(--botton-font-size) / 2);
+	}
+
+	@media (max-width: 600px) {
+		.oppenent-choice p {
+			display: block;
+			font-size: calc(var(--botton-font-size) / 3);
+		}
+	}
+</style>
