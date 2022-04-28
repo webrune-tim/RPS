@@ -13,16 +13,16 @@ const config = {
 	kit: {
 		adapter: adapter(),
 
-		prerender: {
-			default: true,
-		},
+		// prerender: {
+		// 	default: true,
+		// },
 
-		vite: {
-			plugins: [
-				VitePWA(pwaConfiguration),
-				replace(replaceOptions)
-			]
-		}
+		// vite: {
+		// 	plugins: [
+		// 		VitePWA(pwaConfiguration),
+		// 		replace(replaceOptions)
+		// 	]
+		// }
 	}
 };
 
