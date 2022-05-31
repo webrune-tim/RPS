@@ -153,7 +153,7 @@
 
   .play-button,
   .reset-button {
-    font-size: var(--botton-font-size);
+    font-size: var(--button-font-size);
     cursor: pointer;
     margin-bottom: 0.5rem;
     background: transparent;
@@ -172,7 +172,7 @@
 
   @media (max-width: 600px) {
     :root {
-      --botton-font-size: 4rem;
+      --button-font-size: 4rem;
     }
     .game {
       font-size: 3rem;

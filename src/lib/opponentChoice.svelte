@@ -34,13 +34,13 @@
 
 	.oppenent-choice p {
 		display: block;
-		font-size: calc(var(--botton-font-size) / 2);
+		font-size: calc(var(--button-font-size) / 2);
 	}
 
 	@media (max-width: 600px) {
 		.oppenent-choice p {
 			display: block;
-			font-size: calc(var(--botton-font-size) / 3);
+			font-size: calc(var(--button-font-size) / 3);
 		}
 	}
 </style>
